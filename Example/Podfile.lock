@@ -1,0 +1,16 @@
+PODS:
+  - Silero-VAD-for-iOS (0.1.0)
+
+DEPENDENCIES:
+  - Silero-VAD-for-iOS (from `../`)
+
+EXTERNAL SOURCES:
+  Silero-VAD-for-iOS:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Silero-VAD-for-iOS: 816c92a327f3da4912cbf78b05eb94e565fc3d22
+
+PODFILE CHECKSUM: da63771473c61d69053b2a0b496bb78839b7bc56
+
+COCOAPODS: 1.11.3
