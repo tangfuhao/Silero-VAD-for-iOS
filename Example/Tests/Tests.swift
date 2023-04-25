@@ -1,5 +1,5 @@
 import XCTest
-import Silero-VAD-for-iOS
+//import Silero-VAD-for-iOS
 
 class Tests: XCTestCase {
     

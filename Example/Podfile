@@ -1,9 +1,10 @@
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '13.0'
 
 target 'Silero-VAD-for-iOS_Example' do
   pod 'Silero-VAD-for-iOS', :path => '../'
+  
 
   target 'Silero-VAD-for-iOS_Tests' do
     inherit! :search_paths
