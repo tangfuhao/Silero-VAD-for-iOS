@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Silero-VAD-for-iOS'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A short description of Silero-VAD-for-iOS.'
 
 # This description is used to generate tags and improve search results.
@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'Silero-VAD-for-iOS/Classes/**/*'
   s.static_framework = true
-  
+  s.vendored_frameworks = 'Silero-VAD-for-iOS/Frameworks/**/*.framework'
   s.resource_bundles = {
    'Silero_VAD_for_iOS' => ['Silero-VAD-for-iOS/Assets/**/*.{onnx}']
   }
@@ -41,5 +41,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'onnxruntime-objc'
+  s.dependency 'onnxruntime-c'
 end

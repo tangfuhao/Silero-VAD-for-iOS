@@ -1,11 +1,7 @@
 PODS:
   - onnxruntime-c (1.14.0)
-  - onnxruntime-objc (1.14.0):
-    - onnxruntime-objc/Core (= 1.14.0)
-  - onnxruntime-objc/Core (1.14.0):
-    - onnxruntime-c (= 1.14.0)
   - Silero-VAD-for-iOS (0.1.0):
-    - onnxruntime-objc
+    - onnxruntime-c
 
 DEPENDENCIES:
   - Silero-VAD-for-iOS (from `../`)
@@ -13,7 +9,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - onnxruntime-c
-    - onnxruntime-objc
 
 EXTERNAL SOURCES:
   Silero-VAD-for-iOS:
@@ -21,8 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   onnxruntime-c: 1f5923e555122d12239a1173229d6c5e8a0afd3e
-  onnxruntime-objc: d4542b141e06b3ecb98b36f226ef47db0d9add36
-  Silero-VAD-for-iOS: fb19a6a5e39b127958b54499dbdf9a524e2c75b8
+  Silero-VAD-for-iOS: 58e13c565599dd8818757026c16c1b770a067fc7
 
 PODFILE CHECKSUM: 4a193feb7546dc9afe1fbd3277ff1e3a4f3fe5cd
 
