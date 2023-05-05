@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     @objc
     func testDetect() {
         
-        guard let buffer = loadAudioFile(url: Bundle.main.url(forResource: "en_example", withExtension: "wav")) else {
+        guard let buffer = loadAudioFile(url: Bundle.main.url(forResource: "output29", withExtension: "wav")) else {
             return
         }
         
@@ -49,6 +49,11 @@ class ViewController: UIViewController {
         }
 
         let format = file.processingFormat
+        let format2 = file.fileFormat
+        print(format.description)
+        print(format2.description)
+        
+        
         let frameCount = UInt32(file.length)
         guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: frameCount) else {
             return nil

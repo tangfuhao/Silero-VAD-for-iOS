@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7B600ED429F69882006DAF45 /* en_example.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B600ED329F69882006DAF45 /* en_example.wav */; };
+		7B600EE929FB791C006DAF45 /* output29.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B600EE829FB791C006DAF45 /* output29.wav */; };
 		CB32C1E83703475976C9C2F2 /* Pods_Silero_VAD_for_iOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204F28E93C593A01D263337E /* Pods_Silero_VAD_for_iOS_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		01B7AE0D46CA831635E76CA3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		1EC80A1BA165E69188598F95 /* Silero-VAD-for-iOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Silero-VAD-for-iOS.podspec"; path = "../Silero-VAD-for-iOS.podspec"; sourceTree = "<group>"; };
+		1EC80A1BA165E69188598F95 /* Silero-VAD-for-iOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Silero-VAD-for-iOS.podspec"; path = "../Silero-VAD-for-iOS.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		204F28E93C593A01D263337E /* Pods_Silero_VAD_for_iOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Silero_VAD_for_iOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Silero-VAD-for-iOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Silero-VAD-for-iOS_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		69FA319B28FA8CFFD78FC441 /* Pods-Silero-VAD-for-iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Silero-VAD-for-iOS_Example.release.xcconfig"; path = "Target Support Files/Pods-Silero-VAD-for-iOS_Example/Pods-Silero-VAD-for-iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		736521029EED850F0F60DD47 /* Pods-Silero-VAD-for-iOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Silero-VAD-for-iOS_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Silero-VAD-for-iOS_Tests/Pods-Silero-VAD-for-iOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B600ED329F69882006DAF45 /* en_example.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = en_example.wav; sourceTree = "<group>"; };
+		7B600EE829FB791C006DAF45 /* output29.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = output29.wav; sourceTree = "<group>"; };
 		9776CFCC0368954ED808BD08 /* Pods-Silero-VAD-for-iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Silero-VAD-for-iOS_Tests.release.xcconfig"; path = "Target Support Files/Pods-Silero-VAD-for-iOS_Tests/Pods-Silero-VAD-for-iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9F66DD08B5D049E55D1A30D1 /* Pods-Silero-VAD-for-iOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Silero-VAD-for-iOS_Example.debug.xcconfig"; path = "Target Support Files/Pods-Silero-VAD-for-iOS_Example/Pods-Silero-VAD-for-iOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DFA7F83984E0B7BA54D2D971 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		607FACD21AFB9204008FA782 /* Example for Silero-VAD-for-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				7B600EE829FB791C006DAF45 /* output29.wav */,
 				7B600ED329F69882006DAF45 /* en_example.wav */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
@@ -255,6 +258,7 @@
 				7B600ED429F69882006DAF45 /* en_example.wav in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				7B600EE929FB791C006DAF45 /* output29.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

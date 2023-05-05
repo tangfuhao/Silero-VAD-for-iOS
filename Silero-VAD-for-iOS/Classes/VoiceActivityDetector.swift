@@ -116,6 +116,9 @@ public class VoiceActivityDetector {
 //        return newData
 //    }
     
+    
+    
+    
     fileprivate func _detectVAD(_ buffer: AVAudioPCMBuffer, _ windowSampleNums: Int, _ modelHandler: ModelHandler ) -> [VADResult]  {
         var scores: [VADResult] = []
         let channelData: UnsafePointer<UnsafeMutablePointer<Float32>> = buffer.floatChannelData!
@@ -219,17 +222,19 @@ public extension VoiceActivityDetector {
                             minSpeechDurationInMS: Int = 250,
                             maxSpeechDurationInS: Float = 30,
                             minSilenceDurationInMS: Int = 100,
+                            speechPadInMS: Int = 30,
                             windowSampleNums: Int = 512) -> [VADTimeResult]? {
         
         let sr = buffer.format.sampleRate
+        
         guard let vadResults = detect(buffer: buffer, windowSampleNums: windowSampleNums) else {
             return nil
         }
         
         
-//        vadResults.forEach { ressss in
-//            print("{'end': \(ressss.end), 'start': \(ressss.start)}")
-//        }
+        //        vadResults.forEach { ressss in
+        //            print("{'end': \(ressss.end), 'start': \(ressss.start)}")
+        //        }
         
         
         
@@ -237,13 +242,13 @@ public extension VoiceActivityDetector {
         let maxSpeechSamples = Int(sr * Double(maxSpeechDurationInS))
         let minSilenceSample = Int(sr * Double(minSilenceDurationInMS) * 0.001)
         let minSilenceSampleAtMaxSpeech = Int(sr * Double(0.098))
-
-
+        let speechPadSamples = Int(sr *  Double(speechPadInMS) * 0.001)
+        
         
         var triggered = false
         var speeches = [VADTimeResult]()
         var currentSpeech = VADTimeResult()
-
+        
         let neg_threshold = threshold - 0.15
         var temp_end = 0
         var prev_end = 0
@@ -259,14 +264,14 @@ public extension VoiceActivityDetector {
                     next_start = windowSampleNums * i
                 }
             }
-        
+            
             
             if speech_prob >= threshold && !triggered {
                 triggered = true
                 currentSpeech.start = windowSampleNums * i
                 continue
             }
-
+            
             if triggered && (windowSampleNums * i) - currentSpeech.start > maxSpeechSamples {
                 if prev_end != 0 {
                     currentSpeech.end = prev_end
@@ -291,7 +296,7 @@ public extension VoiceActivityDetector {
                     continue
                 }
             }
-
+            
             if speech_prob < neg_threshold && triggered {
                 if temp_end == 0 {
                     temp_end = windowSampleNums * i
@@ -324,7 +329,43 @@ public extension VoiceActivityDetector {
         }
         
         
+        for i in 0..<speeches.count {
+            if i == 0 {
+                speeches[i].start = Int(max(0, speeches[i].start - speechPadSamples))
+            }
+            
+            if i != speeches.count - 1 {
+                let silence_duration = speeches[i+1].start - speeches[i].end
+                if silence_duration < 2 * speechPadSamples {
+                    speeches[i].end += Int(silence_duration / 2)
+                    speeches[i+1].start = Int(max(0, speeches[i+1].start - silence_duration / 2))
+                } else {
+                    speeches[i].end = Int(min(audio_length_samples, speeches[i].end + speechPadSamples))
+                    speeches[i+1].start = Int(max(0, speeches[i+1].start - speechPadSamples))
+                }
+            } else {
+                speeches[i].end = Int(min(audio_length_samples, speeches[i].end + speechPadSamples))
+            }
+        }
         
+//        for (i, var speech) in speeches.enumerated() {
+//            if i == 0 {
+//                speech.start = Int(max(0, speech.start - speechPadSamples))
+//            }
+//            if i != speeches.count - 1 {
+//                let silence_duration = speeches[i+1].start - speech.end
+//                if silence_duration < 2 * speechPadSamples {
+//                    speech.end += Int(silence_duration / 2)
+//                    speeches[i+1].start = Int(max(0, speeches[i+1].start - silence_duration / 2))
+//                } else {
+//                    speech.end = Int(min(audio_length_samples, speech.end + speechPadSamples))
+//                    speeches[i+1].start = Int(max(0, speeches[i+1].start - speechPadSamples))
+//                }
+//            } else {
+//                speech.end = Int(min(audio_length_samples, speech.end + speechPadSamples))
+//            }
+//            speeches[i] = speech
+//        }
         
         
         
